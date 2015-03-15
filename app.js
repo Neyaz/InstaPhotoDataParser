@@ -22,7 +22,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator({
    customValidators: {
     isUrl: function(value) {
-        return value.match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/') == null;
+        var pattern = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/;
+        if(value.search(pattern) == -1){
+          return false;
+        }else{
+          return true;
+        }
     },
   }
 }));
