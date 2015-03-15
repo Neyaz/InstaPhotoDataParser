@@ -3,11 +3,18 @@ extends layout
 block content
   div.container
     div.col-md-4
-        form(method="POST", action='/')
+        if (errors)
+          .alert.alert-danger
+            p= message
+            ul
+              each error in errors
+                li= error.msg
+        form(method="POST", action='/').form-horizontal
             div.form-group
                 label(for="urlInput") Введите урл страницы
                 input#urlInput.form-control(placeholder="Введите урл страницы", name="url")
             button.btn.btn-default(type="submit") Найти фото
-        div.output
-            pre
-                !{info}
+        if info
+            div.output
+                pre
+                    !{info}
