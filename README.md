@@ -3,4 +3,4 @@
 ## Запуск проекта
 
     npm install
-    node www/server.js
+    node bin/www
