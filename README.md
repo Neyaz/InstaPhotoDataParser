@@ -1,5 +1,5 @@
 # Instagramm photos data parser
 
-## Запуск проекта с использованием встроенного сервера php
+## Запуск проекта
 
     node www/server.js
